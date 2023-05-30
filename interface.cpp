@@ -39,13 +39,27 @@ int Interface::apply_txt_input(vector<string> arguments)
             int first = atoi(topology_node[0].c_str());
             int second = atoi(topology_node[1].c_str());
             int cost = atoi(topology_node[2].c_str());
-            this_topology.add_connection(first, second, cost);
+            this->topology->add_connection(first, second, cost);
         }
         cout << "Recorded Topology : " << endl;
-        this_topology.show();
+        this->topology->show();
     }
     else if (func == "modify")
     {
+        vector<string> topology_node;
+        topology_node = tokenizeee(arguments[1], '-');
+        int first = atoi(topology_node[0].c_str());
+        int second = atoi(topology_node[1].c_str());
+        int cost = atoi(topology_node[2].c_str());
+        int was_succesful = this->topology->modify_connection(first, second, cost);
+        if (was_succesful == 1)
+        {
+            cout << "ERROR" << endl;
+        }
+        else if (was_succesful == 0)
+        {
+            cout << "OK" << endl;
+        }
     }
     else if (func == "remove")
     {
@@ -59,5 +73,14 @@ int Interface::start()
     vector<string> inputs;
     inputs = Interface::rcv_txt_input();
     Interface::apply_txt_input(inputs);
+    this->topology->show();
+    // cout << "Enter rest of your commands " << endl;
+    
+    // while(true){
+    //     vector<string> inputs_2;
+    //     inputs_2 = Interface::rcv_txt_input();
+    //     Interface::apply_txt_input(inputs_2);
+    // }
+
     return 0;
 }

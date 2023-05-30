@@ -1,6 +1,7 @@
 #ifndef INTERFACEHPP
 #define INTERFACEHPP
 #include  "topology.hpp" 
+#include <string>
 class Interface
 {
 private:
@@ -10,7 +11,6 @@ public:
     int receive_toplogy();
     int start();
     int initialize();
-    int show_toplogy();
     vector<string> rcv_txt_input();
     int apply_txt_input(vector<string> arguments);
 };

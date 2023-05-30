@@ -9,7 +9,7 @@ class Topology
 {
 private:
     map<int,map<int,int>> topology;
-
+    int max_columns;
 public:
     Topology(int max_columns);
     int add_connection(int n_1,int n_2,int c);
