@@ -11,7 +11,7 @@ private:
     map<int,map<int,int>> topology;
     int max_columns;
 public:
-    Topology(int max_columns);
+    Topology(int& max_columns);
     int add_connection(int n_1,int n_2,int c);
     int remove_connection(int n_1,int n_2);
     int modify_connection(int n_1,int n_2 , int c);

@@ -1,7 +1,7 @@
 #include "topology.hpp"
 using namespace std;
 #include <iostream>
-Topology::Topology(int max_columns)
+Topology::Topology(int &max_columns)
 {
     int max=  max_columns;
     cout << "Max columns " << max_columns << endl;

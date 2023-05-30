@@ -29,8 +29,8 @@ int Interface::apply_txt_input(vector<string> arguments)
             int determinant = max(first, second);
             max_columns = max(determinant, max_columns);
         }
-        Topology this_topology(max_columns);
-        this->topology = &this_topology;
+        Topology*  this_topology = new Topology(max_columns);
+        this->topology = this_topology;
         cout << "Instantiating the first connection" << endl;
         for (int i = 1; i < arguments.size(); i++)
         {
