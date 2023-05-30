@@ -29,7 +29,7 @@ int Interface::apply_txt_input(vector<string> arguments)
             int determinant = max(first, second);
             max_columns = max(determinant, max_columns);
         }
-        Topology*  this_topology = new Topology(max_columns);
+        Topology *this_topology = new Topology(max_columns);
         this->topology = this_topology;
         cout << "Instantiating the first connection" << endl;
         for (int i = 1; i < arguments.size(); i++)
@@ -64,6 +64,10 @@ int Interface::apply_txt_input(vector<string> arguments)
     else if (func == "remove")
     {
     }
+    else if (func == "show")
+    {
+        this->topology->show();
+    }
     return 0;
 }
 
@@ -73,14 +77,12 @@ int Interface::start()
     vector<string> inputs;
     inputs = Interface::rcv_txt_input();
     Interface::apply_txt_input(inputs);
-    this->topology->show();
     // cout << "Enter rest of your commands " << endl;
-    
-    // while(true){
-    //     vector<string> inputs_2;
-    //     inputs_2 = Interface::rcv_txt_input();
-    //     Interface::apply_txt_input(inputs_2);
-    // }
+    while(true){
+        vector<string> inputs_2;
+        inputs_2 = Interface::rcv_txt_input();
+        Interface::apply_txt_input(inputs_2);
+    }
 
     return 0;
 }
