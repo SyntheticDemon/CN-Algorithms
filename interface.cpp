@@ -4,6 +4,7 @@
 #include <vector>
 #include "utils.hpp"
 #include "interface.hpp"
+#include "dvrp.hpp"
 using namespace std;
 
 vector<string> Interface::rcv_txt_input()
@@ -31,7 +32,6 @@ int Interface::apply_txt_input(vector<string> arguments)
         }
         Topology *this_topology = new Topology(max_columns);
         this->topology = this_topology;
-        cout << "Instantiating the first connection" << endl;
         for (int i = 1; i < arguments.size(); i++)
         {
             vector<string> topology_node;
@@ -42,6 +42,7 @@ int Interface::apply_txt_input(vector<string> arguments)
             this->topology->add_connection(first, second, cost);
         }
         cout << "Recorded Topology : " << endl;
+        this->topology->initialize_edges();
         this->topology->show();
     }
     else if (func == "modify")
@@ -82,15 +83,19 @@ int Interface::apply_txt_input(vector<string> arguments)
     {
         this->topology->show();
     }
-    else if (func == "dvrp"){
-        if (arguments.size() == 2){
+    else if (func == "dvrp")
+    {
+        cout << "Running DVRP " << endl;
+        if (arguments.size() == 2)
+        {
             // Runs for the source node
-            int id = atoi(arguments[1].c_str());
-
+            int source_id = atoi(arguments[1].c_str());
+            DVRP* Ran_DVRP = new DVRP(this->topology->max_columns, source_id,this->topology);
+            Ran_DVRP->report();
         }
-        else if (arguments.size() == 1){
+        else if (arguments.size() == 1)
+        {
             // Runs for all nodes
-
         }
     }
     return 0;

@@ -4,7 +4,6 @@ using namespace std;
 #define INF __INT_MAX__
 Topology::Topology(int &max_columns)
 {
-    int max = max_columns;
     cout << "Max columns " << max_columns << endl;
     this->max_columns = max_columns;
     for (int i = 1; i <= max_columns; i++)
@@ -15,7 +14,7 @@ Topology::Topology(int &max_columns)
         }
         this->topology[i][i] = 0;
     }
-    this->initialize_edges();
+ 
 }
 int Topology::add_connection(int n_1, int n_2, int cost)
 {
@@ -50,7 +49,7 @@ void Topology::initialize_edges()
 {
     for (int i = 1; i <= this->max_columns; i++)
     {
-        for (int j = i; j <= this->max_columns; j++)
+        for (int j = 1; j <= this->max_columns; j++)
         {
             int begin = i;
             int next_potential_hop = j;
@@ -60,6 +59,7 @@ void Topology::initialize_edges()
                 tuple<int, int, int> edge;
                 edge = make_tuple(begin, next_potential_hop, weight);
                 this->edges.push_back(edge);
+                cout <<"Edge : " << std::get<0>(edge) << " " << std::get<1>(edge) << " " << std::get<2>(edge) << endl;
             }
         }
     }

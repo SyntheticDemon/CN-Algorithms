@@ -10,9 +10,9 @@ class Topology
 private:
     map<int, map<int, int>> topology;
     vector<tuple<int, int, int>> edges;
-    int max_columns;
 
 public:
+    int max_columns;
     Topology(int &max_columns);
     void initialize_edges();
     vector<tuple<int, int, int>> get_edges();
