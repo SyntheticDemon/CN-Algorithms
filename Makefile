@@ -1,6 +1,9 @@
 all: Main
-Main: main.o interface.o utils.o topology.o  
-	g++ main.o utils.o interface.o topology.o  -o main.exe
+Main: main.o interface.o utils.o topology.o dvrp.o
+	g++ main.o utils.o interface.o topology.o dvrp.o -o main.exe
+
+dvrp.o: dvrp.cpp 
+	g++ -c dvrp.cpp -o dvrp.o -lstdc++
 
 main.o: main.cpp
 	g++ -c main.cpp -o main.o -lstdc++ 

@@ -82,6 +82,17 @@ int Interface::apply_txt_input(vector<string> arguments)
     {
         this->topology->show();
     }
+    else if (func == "dvrp"){
+        if (arguments.size() == 2){
+            // Runs for the source node
+            int id = atoi(arguments[1].c_str());
+
+        }
+        else if (arguments.size() == 1){
+            // Runs for all nodes
+
+        }
+    }
     return 0;
 }
 

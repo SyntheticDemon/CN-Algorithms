@@ -39,6 +39,16 @@ int Topology::modify_connection(int n_1, int n_2, int cost)
 
 int Topology::remove_connection(int n_1, int n_2)
 {
+       if (n_1 > max_columns || n_2 > max_columns)
+    {
+        cout << "Node or connection doesnt exist " << max_columns << endl;
+        return 1;
+    }
+    if (this->topology[n_1][n_2] == 0 && (n_1 != n_2))
+    {
+        cout << "Connection never existed in the first place " << endl;
+        return 1;
+    }
     this->topology[n_1][n_2] = 0;
     return 0;
 }
