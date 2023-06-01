@@ -63,6 +63,20 @@ int Interface::apply_txt_input(vector<string> arguments)
     }
     else if (func == "remove")
     {
+        vector<string> one_and_two;
+        one_and_two = tokenizeee(arguments[1], '-');
+        int first = atoi(one_and_two[0].c_str());
+        int second = atoi(one_and_two[1].c_str());
+        int result = this->topology->remove_connection(first, second);
+        if (result)
+        {
+
+            cout << "OK" << endl;
+        }
+        else
+        {
+            cout << "ERROR" << endl;
+        }
     }
     else if (func == "show")
     {
@@ -78,7 +92,8 @@ int Interface::start()
     inputs = Interface::rcv_txt_input();
     Interface::apply_txt_input(inputs);
     // cout << "Enter rest of your commands " << endl;
-    while(true){
+    while (true)
+    {
         vector<string> inputs_2;
         inputs_2 = Interface::rcv_txt_input();
         Interface::apply_txt_input(inputs_2);
