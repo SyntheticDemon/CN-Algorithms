@@ -5,6 +5,7 @@ using namespace std;
 #define INF __INT_MAX__
 using namespace std;
 #include "dvrp.hpp"
+#include <algorithm>
 string shortest_path(vector<int> parents, int dest)
 {
     string result = "[";
@@ -16,9 +17,10 @@ string shortest_path(vector<int> parents, int dest)
         if (last_hop == -1)
             break;
         cur_place = last_hop;
-        result = result + "<-" + to_string(last_hop);
+        result = result +  " <- " + to_string(last_hop);
     }
     result += "]";
+    
     return result;
 }
 int next_hop(vector<int> parents, int source,int dest)
@@ -36,16 +38,16 @@ int next_hop(vector<int> parents, int source,int dest)
 }
 void DVRP::report()
 {
-    cout << "Destination |"
-         << "Next Hop |"
-         << "Distance |"
-         << "Shortest Path" << endl;
-    cout << "-------------------------------------------" << endl;
+    cout << "   Destination |"
+         << "   Next Hop |"
+         << "   Distance |"
+         << "   Shortest Path " << endl;
+    cout << "------------------------------------------------------------------" << endl;
     for (int i = parents.size() - 1; i > 1; i--)
     {
-        cout << i << " | "
+        cout<< "        " << i << "      | "
              << to_string(next_hop(parents,this->source,i))
-             << " | " << this->distances[i] << " |" << shortest_path(this->parents, i) << endl;
+             << "           | " << this->distances[i] << "       | " << shortest_path(this->parents, i) << endl;
     }
 }
 
