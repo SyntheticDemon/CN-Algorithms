@@ -4,7 +4,7 @@
 #include "topology.hpp"
 using namespace std;
 #include <iostream>
-#define INF __INT_MAX__
+#define INF 100000
 using namespace std;
 
 class DVRP

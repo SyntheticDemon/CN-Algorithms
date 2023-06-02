@@ -3,7 +3,7 @@
 using namespace std;
 #include <iostream>
 #include <chrono>
-#define INF __INT_MAX__
+#define INF 100000
 using namespace std;
 #include "dvrp.hpp"
 #include <algorithm>
@@ -16,7 +16,7 @@ string shortest_path(vector<int> parents, int dest)
     {
 
         int last_hop = parents[cur_place];
-        if (last_hop == -1)
+        if (last_hop == -1 || cur_place == -1)
             break;
         cur_place = last_hop;
         result = result + " <- " + to_string(last_hop);
@@ -28,6 +28,10 @@ string shortest_path(vector<int> parents, int dest)
 int next_hop(vector<int> parents, int source, int dest)
 {
     int cur_place = dest;
+    if (source == dest)
+    {
+        return source;
+    }
     while (true)
     {
 
@@ -61,7 +65,6 @@ DVRP::DVRP(int node_count, int source, Topology *topology)
     auto start = chrono::steady_clock::now();
 
     this->topology = topology;
-    vector<bool> nodes_updated(node_count + 1, false);
     vector<int> dist(node_count + 1, INF);
     vector<int> parents(node_count + 1, -1);
     dist[source] = 0; // Distance to source is always 0

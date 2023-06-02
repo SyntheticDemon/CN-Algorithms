@@ -57,9 +57,14 @@ void Topology::initialize_edges()
             if (weight != INF)
             {
                 tuple<int, int, int> edge;
+                tuple<int, int, int> edge_2;
                 edge = make_tuple(begin, next_potential_hop, weight);
+                edge_2 = make_tuple( next_potential_hop,begin, weight);
+
                 this->edges.push_back(edge);
-                cout <<"Edge : " << std::get<0>(edge) << " " << std::get<1>(edge) << " " << std::get<2>(edge) << endl;
+                this->edges.push_back(edge_2);
+
+                // cout <<"Edge : " << std::get<0>(edge) << " " << std::get<1>(edge) << " " << std::get<2>(edge) << endl;
             }
         }
     }

@@ -90,12 +90,20 @@ int Interface::apply_txt_input(vector<string> arguments)
         {
             // Runs for the source node
             int source_id = atoi(arguments[1].c_str());
-            DVRP* Ran_DVRP = new DVRP(this->topology->max_columns, source_id,this->topology);
+            DVRP *Ran_DVRP = new DVRP(this->topology->max_columns, source_id, this->topology);
             Ran_DVRP->report();
             Ran_DVRP->profile();
         }
         else if (arguments.size() == 1)
         {
+            for (int i = 1; i < this->topology->max_columns; i++)
+            {
+                cout << "DVRP for " << to_string(i) << endl;
+                int source_id = i;
+                DVRP *Ran_DVRP = new DVRP(this->topology->max_columns, source_id, this->topology);
+                Ran_DVRP->report();
+                Ran_DVRP->profile();
+            }
             // Runs for all nodes
         }
     }
