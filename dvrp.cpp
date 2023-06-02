@@ -2,6 +2,7 @@
 #include "topology.hpp"
 using namespace std;
 #include <iostream>
+#include <chrono>
 #define INF __INT_MAX__
 using namespace std;
 #include "dvrp.hpp"
@@ -9,6 +10,7 @@ using namespace std;
 string shortest_path(vector<int> parents, int dest)
 {
     string result = "[";
+    result += to_string(dest);
     int cur_place = dest;
     while (true)
     {
@@ -17,13 +19,13 @@ string shortest_path(vector<int> parents, int dest)
         if (last_hop == -1)
             break;
         cur_place = last_hop;
-        result = result +  " <- " + to_string(last_hop);
+        result = result + " <- " + to_string(last_hop);
     }
     result += "]";
-    
+
     return result;
 }
-int next_hop(vector<int> parents, int source,int dest)
+int next_hop(vector<int> parents, int source, int dest)
 {
     int cur_place = dest;
     while (true)
@@ -45,14 +47,19 @@ void DVRP::report()
     cout << "------------------------------------------------------------------" << endl;
     for (int i = parents.size() - 1; i > 1; i--)
     {
-        cout<< "        " << i << "      | "
-             << to_string(next_hop(parents,this->source,i))
+        cout << "        " << i << "      | "
+             << to_string(next_hop(parents, this->source, i))
              << "           | " << this->distances[i] << "       | " << shortest_path(this->parents, i) << endl;
     }
 }
-
+void DVRP::profile()
+{
+    cout << "DVRP Took " << this->taken << endl;
+}
 DVRP::DVRP(int node_count, int source, Topology *topology)
 {
+    auto start = chrono::steady_clock::now();
+
     this->topology = topology;
     vector<bool> nodes_updated(node_count + 1, false);
     vector<int> dist(node_count + 1, INF);
@@ -79,7 +86,10 @@ DVRP::DVRP(int node_count, int source, Topology *topology)
             break;
         }
     }
+    auto finish = chrono::steady_clock::now();
     this->parents = parents;
     this->distances = dist;
-    this->source=source;
+    this->source = source;
+    double taken = std::chrono::duration_cast<std::chrono::duration<double>>(finish - start).count();
+    this->taken = taken;
 }

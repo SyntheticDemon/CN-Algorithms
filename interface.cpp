@@ -92,6 +92,7 @@ int Interface::apply_txt_input(vector<string> arguments)
             int source_id = atoi(arguments[1].c_str());
             DVRP* Ran_DVRP = new DVRP(this->topology->max_columns, source_id,this->topology);
             Ran_DVRP->report();
+            Ran_DVRP->profile();
         }
         else if (arguments.size() == 1)
         {
