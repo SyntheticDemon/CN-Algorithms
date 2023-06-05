@@ -71,11 +71,18 @@ modify <start,dst,new_cost>
 sh test_edge_removal.sh
 ```
 
+##### DVRP Results
+
+<img alt="alt_text" src="images/DVRP_out.png"/>
+
 ##### DVRP With removal Results
 
 <img alt="alt_text" src="images/DVRP_removal_out.png"/>
 
 ##### LSRP Results
 
-<img alt="alt_text" src="images/LSRP_removal_out.png"/>
+<img alt="alt_text" src="images/LSRP_out.png"/>
 
+##### LSRP With removal Results
+
+<img alt="alt_text" src="images/LSRP_removal_out.png"/>

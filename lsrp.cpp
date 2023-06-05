@@ -46,18 +46,14 @@ void LSRP::ShortestPath(vector<int> distances, vector<int> parent, int source) {
     }
     cout << ss.str();
 }
-
 int LSRP::minimumDistance(vector<int> distances, vector<bool> visitedNodes) {
-    int minimum_distance = INF, minimum_index;
-    int k = 0;
-    while (k < distances.size()) {
-        if (visitedNodes[k] == false && distances[k] <= minimum_distance) {
-            minimum_distance = distances[k];
-            minimum_index = k;
+    int min = 99999, min_index;
+    for (int k = 0; k < distances.size(); k++) {
+        if (visitedNodes[k] == false && distances[k] <= min){
+            min = distances[k], min_index = k;
         }
-        k++;
     }
-    return minimum_index;
+    return min_index;
 }
 
 

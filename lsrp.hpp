@@ -16,7 +16,7 @@ public:
     void lsrpAlgorithm(vector<vector<int>> graph, int source);
     double profile();
     double taken;
-    int minimumDistance(vector<int> distances, vector<bool> visitedNodes);
+    int minimumDistance(vector<int> dist, vector<bool> sptSet);
     void ShortestPath(vector<int> distances, vector<int> parent, int source);
     void iterationLspr(vector<int> distances, int ItrNum);
 };
