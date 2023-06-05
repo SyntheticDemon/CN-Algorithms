@@ -70,7 +70,7 @@ int Interface::apply_txt_input(vector<string> arguments)
         int first = atoi(one_and_two[0].c_str());
         int second = atoi(one_and_two[1].c_str());
         int result = this->topology->remove_connection(first, second);
-        if (result)
+        if (!result)
         {
 
             cout << "OK" << endl;
