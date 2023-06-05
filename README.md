@@ -64,3 +64,18 @@ modify <start,dst,new_cost>
 ##### Running time for LSRP on all dests and sources
 
 <img alt="alt_text" src="images/LSRP_out.png"/>
+
+### Running the test that removes an edge 
+
+```
+sh test_edge_removal.sh
+```
+
+##### DVRP Results
+
+<img alt="alt_text" src="images/DVRP_removal_out.png"/>
+
+##### LSRP Results
+
+<img alt="alt_text" src="images/LSRP_removal_out.png"/>
+
