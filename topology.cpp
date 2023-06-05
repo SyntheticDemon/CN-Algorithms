@@ -45,6 +45,27 @@ vector<tuple<int, int, int>> Topology::get_edges()
 {
     return this->edges;
 }
+vector<vector<int>> Topology::get_adjacency_edges(){
+    vector<vector<int>> adjacency_topology;
+    for (int i = 0; i < this->max_columns; i++)
+    {
+        vector<int> row;
+        for(int j = 0; j < this->max_columns; j++)
+        {
+            row.push_back(0);
+        }
+        adjacency_topology.push_back(row);
+    }
+    for (int i = 0; i < this->topology.size(); i++) {
+        for (int j = 0; j < this->topology.size(); j++) {
+            if(this->topology[i+1][j+1] == INF)
+                continue;
+            adjacency_topology[i][j] = this->topology[i+1][j+1];
+            adjacency_topology[j][i] = this->topology[i+1][j+1];
+        }
+    }
+    return adjacency_topology;
+}
 void Topology::initialize_edges()
 {
     for (int i = 1; i <= this->max_columns; i++)

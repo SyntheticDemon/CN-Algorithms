@@ -5,6 +5,7 @@
 #include "utils.hpp"
 #include "interface.hpp"
 #include "dvrp.hpp"
+#include "lsrp.hpp"
 using namespace std;
 
 vector<string> Interface::rcv_txt_input()
@@ -103,6 +104,35 @@ int Interface::apply_txt_input(vector<string> arguments)
                 DVRP *Ran_DVRP = new DVRP(this->topology->max_columns, source_id, this->topology);
                 Ran_DVRP->report();
                 Ran_DVRP->profile();
+            }
+            // Runs for all nodes
+        }
+    }
+    else if (func == "lsrp")
+    {
+        cout << "Running LSRP " << endl;
+        vector<vector<int>> adj = this->topology->get_adjacency_edges();
+        for (int i = 0; i < this->topology->max_columns; i++) {
+            for (int j = 0; j < this->topology->max_columns; j++) {
+            cout << adj[i][j] << endl;
+            }
+        }
+
+        if (arguments.size() == 2)
+        {
+            // Runs for the source node
+            int source_id = atoi(arguments[1].c_str());
+            LSRP *Ran_LSRP = new LSRP(adj, source_id - 1);
+            Ran_LSRP->profile();
+        }
+        else if (arguments.size() == 1)
+        {
+            for (int i = 0; i < this->topology->max_columns; i++)
+            {
+                cout << "LSRP for " << to_string(i + 1) << endl;
+                int source_id = i;
+                LSRP *Ran_LSRP = new LSRP(adj, source_id);
+                Ran_LSRP->profile();
             }
             // Runs for all nodes
         }

@@ -16,6 +16,7 @@ public:
     Topology(int &max_columns);
     void initialize_edges();
     vector<tuple<int, int, int>> get_edges();
+    vector<vector<int>> get_adjacency_edges();
     int get_weight(int n_1, int n_2);
     int add_connection(int n_1, int n_2, int c);
     int remove_connection(int n_1, int n_2);
