@@ -80,7 +80,7 @@ Path [source] -> [destination] | Min-Cost | Shortest-Path
   1 |  11 |      28 | 1->7->3->8->11
   1 |  12 |      15 | 1->7->12
   1 |  13 |      26 | 1->7->2->6->13
-LSRP Took 0.0002735
+LSRP Took 0.000116942
 LSRP for 2
 Iter 1:
 Dest 1 |2 |3 |4 |5 |6 |7 |8 |9 |10 |11 |12 |13 |
@@ -143,7 +143,7 @@ Path [source] -> [destination] | Min-Cost | Shortest-Path
   2 |  11 |      27 | 2->6->11
   2 |  12 |      18 | 2->6->13->9->12
   2 |  13 |       6 | 2->6->13
-LSRP Took 0.0002802
+LSRP Took 0.000112685
 LSRP for 3
 Iter 1:
 Dest 1 |2 |3 |4 |5 |6 |7 |8 |9 |10 |11 |12 |13 |
@@ -206,7 +206,7 @@ Path [source] -> [destination] | Min-Cost | Shortest-Path
   3 |  11 |      20 | 3->8->11
   3 |  12 |       8 | 3->12
   3 |  13 |      20 | 3->12->9->13
-LSRP Took 0.0002496
+LSRP Took 0.000112633
 LSRP for 4
 Iter 1:
 Dest 1 |2 |3 |4 |5 |6 |7 |8 |9 |10 |11 |12 |13 |
@@ -269,7 +269,7 @@ Path [source] -> [destination] | Min-Cost | Shortest-Path
   4 |  11 |      44 | 4->6->11
   4 |  12 |      35 | 4->6->13->9->12
   4 |  13 |      23 | 4->6->13
-LSRP Took 0.0002505
+LSRP Took 0.000121303
 LSRP for 5
 Iter 1:
 Dest 1 |2 |3 |4 |5 |6 |7 |8 |9 |10 |11 |12 |13 |
@@ -332,7 +332,7 @@ Path [source] -> [destination] | Min-Cost | Shortest-Path
   5 |  11 |      34 | 5->1->7->3->8->11
   5 |  12 |      15 | 5->10->12
   5 |  13 |      27 | 5->10->12->9->13
-LSRP Took 0.0002529
+LSRP Took 0.000108357
 LSRP for 6
 Iter 1:
 Dest 1 |2 |3 |4 |5 |6 |7 |8 |9 |10 |11 |12 |13 |
@@ -395,7 +395,7 @@ Path [source] -> [destination] | Min-Cost | Shortest-Path
   6 |  11 |      25 | 6->11
   6 |  12 |      16 | 6->13->9->12
   6 |  13 |       4 | 6->13
-LSRP Took 0.000246
+LSRP Took 0.000104378
 LSRP for 7
 Iter 1:
 Dest 1 |2 |3 |4 |5 |6 |7 |8 |9 |10 |11 |12 |13 |
@@ -458,7 +458,7 @@ Path [source] -> [destination] | Min-Cost | Shortest-Path
   7 |  11 |      21 | 7->3->8->11
   7 |  12 |       8 | 7->12
   7 |  13 |      19 | 7->2->6->13
-LSRP Took 0.0002758
+LSRP Took 0.000105364
 LSRP for 8
 Iter 1:
 Dest 1 |2 |3 |4 |5 |6 |7 |8 |9 |10 |11 |12 |13 |
@@ -521,7 +521,7 @@ Path [source] -> [destination] | Min-Cost | Shortest-Path
   8 |  11 |      16 | 8->11
   8 |  12 |      12 | 8->3->12
   8 |  13 |      21 | 8->6->13
-LSRP Took 0.0002475
+LSRP Took 0.000105768
 LSRP for 9
 Iter 1:
 Dest 1 |2 |3 |4 |5 |6 |7 |8 |9 |10 |11 |12 |13 |
@@ -584,7 +584,7 @@ Path [source] -> [destination] | Min-Cost | Shortest-Path
   9 |  11 |      33 | 9->12->3->8->11
   9 |  12 |       5 | 9->12
   9 |  13 |       7 | 9->13
-LSRP Took 0.000249
+LSRP Took 0.000108556
 LSRP for 10
 Iter 1:
 Dest 1 |2 |3 |4 |5 |6 |7 |8 |9 |10 |11 |12 |13 |
@@ -647,7 +647,7 @@ Path [source] -> [destination] | Min-Cost | Shortest-Path
  10 |  11 |      37 | 10->5->1->7->3->8->11
  10 |  12 |      12 | 10->12
  10 |  13 |      24 | 10->12->9->13
-LSRP Took 0.0002524
+LSRP Took 0.000152631
 LSRP for 11
 Iter 1:
 Dest 1 |2 |3 |4 |5 |6 |7 |8 |9 |10 |11 |12 |13 |
@@ -710,7 +710,7 @@ Path [source] -> [destination] | Min-Cost | Shortest-Path
  11 |  10 |      37 | 11->8->3->7->1->5->10
  11 |  12 |      28 | 11->8->3->12
  11 |  13 |      29 | 11->6->13
-LSRP Took 0.0002483
+LSRP Took 0.000139362
 LSRP for 12
 Iter 1:
 Dest 1 |2 |3 |4 |5 |6 |7 |8 |9 |10 |11 |12 |13 |
@@ -773,7 +773,7 @@ Path [source] -> [destination] | Min-Cost | Shortest-Path
  12 |  10 |      12 | 12->10
  12 |  11 |      28 | 12->3->8->11
  12 |  13 |      12 | 12->9->13
-LSRP Took 0.0002486
+LSRP Took 0.00013951
 LSRP for 13
 Iter 1:
 Dest 1 |2 |3 |4 |5 |6 |7 |8 |9 |10 |11 |12 |13 |
@@ -836,5 +836,5 @@ Path [source] -> [destination] | Min-Cost | Shortest-Path
  13 |  10 |      24 | 13->9->12->10
  13 |  11 |      29 | 13->6->11
  13 |  12 |      12 | 13->9->12
-LSRP Took 0.0002652
-LSRP Total running time 0.0033395
+LSRP Took 0.000128306
+LSRP Total running time 0.0015558

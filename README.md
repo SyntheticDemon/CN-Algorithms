@@ -86,3 +86,42 @@ sh test_edge_removal.sh
 ##### LSRP With removal Results
 
 <img alt="alt_text" src="images/LSRP_removal_out.png"/>
+
+
+## Explaining the code 
+
+
+### Interface
+An interface is wrapped around the Algorithms, and the topology class which allows instantiation of their instances. 
+
+
+<img alt="alt_text" src="images/Interface.png"/>
+
+### Topology 
+
+a utillity class designed to act as a container for the data, the only class that offers certain degree of mutabillity 
+
+<img alt="alt_text" src="images/Topology.png"/>
+
+### Algorithms and Their Implementations 
+The algorithm look the same, both have implementations , reportage and profiling inside them .
+
+##### The class supports the main functionalities mentioned
+<img alt="alt_text" src="images/DVRP_class.png"/>
+
+##### DVRP implementation follows a raw bellman ford approach
+
+<img alt="alt_text" src="images/DVRP_impl.png"/>
+
+##### The class supports the main functionalities mentioned
+<img alt="alt_text" src="images/LSRP_class.png"/>
+
+
+
+##### Implementation closely follow the djkistra algorithm
+<img alt="alt_text" src="images/LSRP_impl.png"/>
+
+
+## Explaining the results 
+
+Linkstate algorithm whcih is based on  Djikstra algorithm  is actually O(V^3) but Bellman ford is of order O(E*V) and it's used by DVRP , now these orders are actually multiplied by v in our implementation , because they are for all nodes once, thus we expect the DVRP algorithm to have a better performance and our results adhere to that .
