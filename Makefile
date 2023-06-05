@@ -25,3 +25,4 @@ utils.o: utils.cpp utils.hpp
 clean:
 	rm *.o 
 	rm *.exe
+	rm ./output/*

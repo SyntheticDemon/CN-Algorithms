@@ -84,9 +84,10 @@ void LSRP::lsrpAlgorithm(vector<vector<int>> graph, int source) {
     ShortestPath(distances, parent, source);
 }
 
-void LSRP::profile()
+double LSRP::profile()
 {
     cout << "LSRP Took " << this->taken << endl;
+    return this->taken;
 }
 
 LSRP::LSRP(vector<vector<int>> graph, int source_id) {

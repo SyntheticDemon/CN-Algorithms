@@ -4,7 +4,7 @@
 #include "topology.hpp"
 using namespace std;
 #include <iostream>
-#define INF 100000
+#define INF (__INT_MAX__ - 1000)
 using namespace std;
 
 class DVRP
@@ -18,6 +18,6 @@ public:
     vector<int> parents;
     DVRP(int node_count, int source, Topology *topology);
     void report();
-    void profile();
+    double profile();
 };
 #endif

@@ -3,7 +3,7 @@
 using namespace std;
 #include <iostream>
 #include <chrono>
-#define INF 100000
+#define INF (__INT_MAX__ - 1000)
 using namespace std;
 #include "dvrp.hpp"
 #include <algorithm>
@@ -56,9 +56,10 @@ void DVRP::report()
              << "           | " << this->distances[i] << "       | " << shortest_path(this->parents, i) << endl;
     }
 }
-void DVRP::profile()
+double DVRP::profile()
 {
     cout << "DVRP Took " << this->taken << endl;
+    return this->taken;
 }
 DVRP::DVRP(int node_count, int source, Topology *topology)
 {

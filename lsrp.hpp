@@ -6,7 +6,7 @@
 using namespace std;
 #include <iostream>
 #include <chrono>
-#define INF 100000
+#define INF (__INT_MAX__ - 1000)
 using namespace std;
 
 class LSRP
@@ -14,7 +14,7 @@ class LSRP
 public:
     LSRP(vector<vector<int>> graph, int source_id);
     void lsrpAlgorithm(vector<vector<int>> graph, int source);
-    void profile();
+    double profile();
     double taken;
     int minimumDistance(vector<int> distances, vector<bool> visitedNodes);
     void ShortestPath(vector<int> distances, vector<int> parent, int source);

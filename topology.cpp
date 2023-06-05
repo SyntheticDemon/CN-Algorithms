@@ -1,7 +1,7 @@
 #include "topology.hpp"
 using namespace std;
 #include <iostream>
-#define INF __INT_MAX__
+#define INF (__INT_MAX__ - 1000)
 Topology::Topology(int &max_columns)
 {
     cout << "Max columns " << max_columns << endl;
@@ -10,11 +10,11 @@ Topology::Topology(int &max_columns)
     {
         for (int j = 1; j <= max_columns; j++)
         {
+            this->topology[j][i] = INF;
             this->topology[i][j] = INF;
         }
         this->topology[i][i] = 0;
     }
- 
 }
 int Topology::add_connection(int n_1, int n_2, int cost)
 {
@@ -45,23 +45,26 @@ vector<tuple<int, int, int>> Topology::get_edges()
 {
     return this->edges;
 }
-vector<vector<int>> Topology::get_adjacency_edges(){
+vector<vector<int>> Topology::get_adjacency_edges()
+{
     vector<vector<int>> adjacency_topology;
     for (int i = 0; i < this->max_columns; i++)
     {
         vector<int> row;
-        for(int j = 0; j < this->max_columns; j++)
+        for (int j = 0; j < this->max_columns; j++)
         {
             row.push_back(0);
         }
         adjacency_topology.push_back(row);
     }
-    for (int i = 0; i < this->topology.size(); i++) {
-        for (int j = 0; j < this->topology.size(); j++) {
-            if(this->topology[i+1][j+1] == INF)
+    for (int i = 0; i < this->topology.size(); i++)
+    {
+        for (int j = 0; j < this->topology.size(); j++)
+        {
+            if (this->topology[i + 1][j + 1] == INF)
                 continue;
-            adjacency_topology[i][j] = this->topology[i+1][j+1];
-            adjacency_topology[j][i] = this->topology[i+1][j+1];
+            adjacency_topology[i][j] = this->topology[i + 1][j + 1];
+            adjacency_topology[j][i] = this->topology[i + 1][j + 1];
         }
     }
     return adjacency_topology;
@@ -80,7 +83,7 @@ void Topology::initialize_edges()
                 tuple<int, int, int> edge;
                 tuple<int, int, int> edge_2;
                 edge = make_tuple(begin, next_potential_hop, weight);
-                edge_2 = make_tuple( next_potential_hop,begin, weight);
+                edge_2 = make_tuple(next_potential_hop, begin, weight);
 
                 this->edges.push_back(edge);
                 this->edges.push_back(edge_2);
@@ -123,7 +126,17 @@ int Topology::show()
         cout << itr->first << " | ";
         for (itr_inner = itr->second.begin(); itr_inner != itr->second.end(); ++itr_inner)
         {
-            cout << " " << itr_inner->second << " ";
+            if (itr_inner->second == INF)
+            {
+                cout << " "
+                     << "INF"
+                     << " ";
+            }
+            else
+            {
+
+                cout << " " << itr_inner->second << " ";
+            }
         }
         cout << endl;
     }

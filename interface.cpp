@@ -86,6 +86,7 @@ int Interface::apply_txt_input(vector<string> arguments)
     }
     else if (func == "dvrp")
     {
+        int total_test_time = 0;
         cout << "Running DVRP " << endl;
         if (arguments.size() == 2)
         {
@@ -112,9 +113,11 @@ int Interface::apply_txt_input(vector<string> arguments)
     {
         cout << "Running LSRP " << endl;
         vector<vector<int>> adj = this->topology->get_adjacency_edges();
-        for (int i = 0; i < this->topology->max_columns; i++) {
-            for (int j = 0; j < this->topology->max_columns; j++) {
-            cout << adj[i][j] << endl;
+        for (int i = 0; i < this->topology->max_columns; i++)
+        {
+            for (int j = 0; j < this->topology->max_columns; j++)
+            {
+                cout << adj[i][j] << endl;
             }
         }
 
