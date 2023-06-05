@@ -106,6 +106,8 @@ int Topology::remove_connection(int n_1, int n_2)
         return 0;
     }
     this->topology[n_1][n_2] = INF;
+    this->topology[n_2][n_1] = INF;
+
     return 0;
 }
 

@@ -48,7 +48,7 @@ void LSRP::ShortestPath(vector<int> distances, vector<int> parent, int source) {
 }
 
 int LSRP::minimumDistance(vector<int> distances, vector<bool> visitedNodes) {
-    int minimum_distance = 99999, minimum_index;
+    int minimum_distance = INF, minimum_index;
     int k = 0;
     while (k < distances.size()) {
         if (visitedNodes[k] == false && distances[k] <= minimum_distance) {
@@ -63,7 +63,7 @@ int LSRP::minimumDistance(vector<int> distances, vector<bool> visitedNodes) {
 
 void LSRP::lsrpAlgorithm(vector<vector<int>> graph, int source) {
     vector<bool> visited(graph.size(), false);
-    vector<int> distances(graph.size(), 99999);
+    vector<int> distances(graph.size(), INF);
     vector<int> parent(graph.size(), -1);
     distances[source] = 0;
     int i = 0;
@@ -72,7 +72,7 @@ void LSRP::lsrpAlgorithm(vector<vector<int>> graph, int source) {
         visited[u] = true;
         int k = 0;
         while (k < graph.size()) {
-            if (!visited[k] && graph[u][k] && distances[u] != 99999 && distances[u] + graph[u][k] < distances[k]) {
+            if (!visited[k] && graph[u][k] && distances[u] != INF && distances[u] + graph[u][k] < distances[k]) {
                 distances[k] = distances[u] + graph[u][k];
                 parent[k] = u;
             }
