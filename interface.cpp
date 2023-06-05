@@ -86,7 +86,7 @@ int Interface::apply_txt_input(vector<string> arguments)
     }
     else if (func == "dvrp")
     {
-        int total_test_time = 0;
+        double total_test_time = 0;
         cout << "Running DVRP " << endl;
         if (arguments.size() == 2)
         {
@@ -94,39 +94,34 @@ int Interface::apply_txt_input(vector<string> arguments)
             int source_id = atoi(arguments[1].c_str());
             DVRP *Ran_DVRP = new DVRP(this->topology->max_columns, source_id, this->topology);
             Ran_DVRP->report();
-            Ran_DVRP->profile();
+            total_test_time += Ran_DVRP->profile();
         }
         else if (arguments.size() == 1)
         {
+
             for (int i = 1; i < this->topology->max_columns; i++)
             {
                 cout << "DVRP for " << to_string(i) << endl;
                 int source_id = i;
                 DVRP *Ran_DVRP = new DVRP(this->topology->max_columns, source_id, this->topology);
                 Ran_DVRP->report();
-                Ran_DVRP->profile();
+                total_test_time += Ran_DVRP->profile();
             }
+            cout << "DVRP Total Running Time " << total_test_time << endl;
             // Runs for all nodes
         }
     }
     else if (func == "lsrp")
     {
+        double total_test_time = 0;
         cout << "Running LSRP " << endl;
         vector<vector<int>> adj = this->topology->get_adjacency_edges();
-        for (int i = 0; i < this->topology->max_columns; i++)
-        {
-            for (int j = 0; j < this->topology->max_columns; j++)
-            {
-                cout << adj[i][j] << endl;
-            }
-        }
-
         if (arguments.size() == 2)
         {
             // Runs for the source node
             int source_id = atoi(arguments[1].c_str());
             LSRP *Ran_LSRP = new LSRP(adj, source_id - 1);
-            Ran_LSRP->profile();
+            total_test_time += Ran_LSRP->profile();
         }
         else if (arguments.size() == 1)
         {
@@ -135,8 +130,9 @@ int Interface::apply_txt_input(vector<string> arguments)
                 cout << "LSRP for " << to_string(i + 1) << endl;
                 int source_id = i;
                 LSRP *Ran_LSRP = new LSRP(adj, source_id);
-                Ran_LSRP->profile();
+                total_test_time += Ran_LSRP->profile();
             }
+            cout << "LSRP Total running time " <<  total_test_time<< endl;
             // Runs for all nodes
         }
     }
