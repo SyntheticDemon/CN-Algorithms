@@ -71,7 +71,7 @@ modify <start,dst,new_cost>
 sh test_edge_removal.sh
 ```
 
-##### DVRP Results
+##### DVRP With removal Results
 
 <img alt="alt_text" src="images/DVRP_removal_out.png"/>
 
