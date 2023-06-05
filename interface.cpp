@@ -132,7 +132,7 @@ int Interface::apply_txt_input(vector<string> arguments)
                 LSRP *Ran_LSRP = new LSRP(adj, source_id);
                 total_test_time += Ran_LSRP->profile();
             }
-            cout << "LSRP Total running time " <<  total_test_time<< endl;
+            cout << "LSRP Total running time " << total_test_time << endl;
             // Runs for all nodes
         }
     }

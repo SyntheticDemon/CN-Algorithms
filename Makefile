@@ -26,3 +26,4 @@ clean:
 	rm *.o 
 	rm *.exe
 	rm ./output/*
+	
